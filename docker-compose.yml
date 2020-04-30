@@ -1,9 +1,10 @@
 version: '3.7'
 services: 
   composer:
-    image: composer:latest
+    build:
+      context: .
+      dockerfile: ./docker/composer/Dockerfile
     container_name: composer
-    command: "composer install"
     working_dir: /sample-ecs-laravel-docker
     volumes:
       - type: bind
