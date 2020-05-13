@@ -20,18 +20,6 @@ services:
         source: ./
         target: /sample-ecs-laravel-docker
 
-  nginx:
-    build:
-      context: .
-      dockerfile: ./docker/nginx/Dockerfile
-      args:
-        SERVER_NAME: localhost
-        PHP_CONTAINER: php
-        NODE_CONTAINER: node
-    container_name: nginx
-    ports:
-      - 80:80
-
   node_builder:
     build:
       context: .
@@ -51,3 +39,16 @@ services:
       - type: bind
         source: ./next
         target: /sample-ecs-laravel-docker/next
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+      args:
+        SERVER_NAME: localhost
+        PHP_CONTAINER: php
+        NODE_CONTAINER: node
+    container_name: nginx
+    ports:
+      - 80:80
+
