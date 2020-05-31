@@ -4,7 +4,7 @@ WORKDIR /sample-ecs-laravel-docker
 
 COPY . .
 
-ENTRYPOINT composer install
+RUN composer install
 
 
 FROM php:fpm-alpine3.11
