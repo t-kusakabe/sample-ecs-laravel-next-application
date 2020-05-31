@@ -1,15 +1,5 @@
 version: '3.7'
 services:
-  composer:
-    build:
-      context: .
-      dockerfile: ./docker/composer/Dockerfile
-    container_name: composer
-    volumes:
-      - type: bind
-        source: ./
-        target: /sample-ecs-laravel-docker
-
   php:
     build:
       context: .
