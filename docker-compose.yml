@@ -20,16 +20,6 @@ services:
         source: ./
         target: /sample-ecs-laravel-docker
 
-  node_builder:
-    build:
-      context: .
-      dockerfile: ./docker/node_builder/Dockerfile
-    container_name: node_builder
-    volumes:
-      - type: bind
-        source: ./next
-        target: /sample-ecs-laravel-docker/next
-
   node:
     build:
       context: .
