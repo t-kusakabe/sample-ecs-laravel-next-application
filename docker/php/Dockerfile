@@ -1,3 +1,12 @@
+FROM composer:latest as builder
+
+WORKDIR /sample-ecs-laravel-docker
+
+COPY . .
+
+ENTRYPOINT composer install
+
+
 FROM php:fpm-alpine3.11
 
 COPY ./docker/php/conf.d/server.ini /usr/local/etc/php/conf.d/server.ini
