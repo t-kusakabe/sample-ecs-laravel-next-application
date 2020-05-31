@@ -19,6 +19,9 @@ services:
       - type: bind
         source: ./next
         target: /sample-ecs-laravel-docker/next
+      - type: volume
+        source: node-modules-data
+        target: /sample-ecs-laravel-docker/next/node_modules
 
   nginx:
     build:
@@ -31,3 +34,19 @@ services:
     container_name: nginx
     ports:
       - 80:80
+
+  mysql:
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
+    container_name: mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - type: volume
+        source: mysql-data
+        target: /var/lib/mysql
+
+volumes:
+  mysql-data:
+  node-modules-data:

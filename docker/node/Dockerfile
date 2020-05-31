@@ -10,6 +10,8 @@ COPY next/package.json next/package-lock.json /sample-ecs-laravel-docker/next/
 
 RUN npm install
 
+VOLUME ["/sample-ecs-laravel-docker/next/node_modules"]
+
 
 FROM node:14.0.0-alpine3.11
 
